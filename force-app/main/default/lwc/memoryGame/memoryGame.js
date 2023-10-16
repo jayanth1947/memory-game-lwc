@@ -65,6 +65,7 @@ export default class MemoryGame extends LightningElement {
     }
 
 
+    //This is triggered when two cards are matched
     matched(){
         this.openedCards[0].classList.add("match","disabled");
         this.openedCards[1].classList.add("match","disabled");
@@ -78,7 +79,7 @@ export default class MemoryGame extends LightningElement {
         
     }
 
-
+    //This is triggered when two cards are UNmatched
     unMatched(){
         this.openedCards[0].classList.add("unmatched");
         this.openedCards[1].classList.add("unmatched");
@@ -111,7 +112,7 @@ export default class MemoryGame extends LightningElement {
     }
 
 
-
+    //This is used for setting the timer
     timer(){
         let startTime =new Date()
         this.timeRef=setInterval(()=>{
@@ -126,7 +127,7 @@ export default class MemoryGame extends LightningElement {
     }
 
 
-
+    //shuffle all the cards when a reset icon is clicked 
     shuffle(){
         this.showCongrations=false
         this.openedCards =[]
@@ -139,7 +140,7 @@ export default class MemoryGame extends LightningElement {
             item.classList.remove("show","open","match","disabled")
         })
 
-        // Shuffling
+        // Shuffling the icons 
         let array=[...this.cards]
         let counter=array.length
         while(counter>0){
@@ -154,7 +155,7 @@ export default class MemoryGame extends LightningElement {
     }
 
 
-
+    // This is used for the loading of the style in the lwc component
     renderedCallback(){
         if (this.isLibLoaded) {
             return
