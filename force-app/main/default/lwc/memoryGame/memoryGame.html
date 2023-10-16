@@ -3,6 +3,8 @@
         <!-- Lightning Card for the Memory Game -->
         <lightning-card  title="Memory Game">
             <div class="slds-var-p-around_medium">
+
+                <!-- Score Panel -->
                 <section class="score-panel">
                     <span class="moves">{moves}</span> Move(s)
                     <div class="timer">{totalTime}</div>
@@ -21,7 +23,7 @@
                         </template>
                     </ul>
 
-                    <!-- Show Modal -->
+                    <!-- Show Modal Notification after winning the game -->
                     <template if:true={showCongrations}>
                         <section role="dialog" tabindex="-1" aria-modal="true" aria-labelledby="modal-heading-01" class="slds-modal slds-fade-in-open">
                             <div class="slds-modal__container">

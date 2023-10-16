@@ -1,3 +1,4 @@
+/* Styling for the container */
 .container{
     display: flex;
     justify-content: center;
@@ -5,22 +6,26 @@
     flex-direction: column;
 }
 
+/* Styling for the score panel */
 .score-panel{
     text-align: left;
     margin-bottom: 12px;
 }
 
+/* Styling for the Timer */
 .timer{
     display: inline-block;
     margin: 0 1rem;
 }
 
+/* Styling for the Restart Icon */
 .restart{
     float: right;
     cursor: pointer;
     margin: 0px 8px;
 }
 
+/* Styling for the Grid Container */
 .grid-container{
     display: grid;
     grid-template-columns: repeat(4,1fr);
@@ -33,6 +38,7 @@
     box-shadow: 8px 9px 26px 0 rgba(46, 61, 73, 0.5);
 }
 
+/* Styling for the Grid Container for the card */
 .grid-container .card{
     height: 3.7rem;
     width: 3.7rem;
@@ -48,6 +54,7 @@
     box-shadow: 5px 2px 20px 0 rgba(46, 61, 73, 0.5) ;
 }
 
+/* Styling for when a card is in open state */
 .grid-container .card.open{
     transform: rotateY(0);
     background: #02b3e4;
@@ -58,17 +65,20 @@
     animation-duration: .75s;
 }
 
+/* Styling for when a card in show state */
 .grid-container .card.show{
     font-size: 33px;
     visibility: visible !important;
     opacity: 100 !important;
 }
 
+/* Styling when a card is disabled */
 .grid-container .card.disabled{
     pointer-events: none;
     opacity: 0.9;
 }
 
+/* Styling when two cards are matched */
 .grid-container .card.match{
     cursor: default;
     background: #E5F720;
@@ -78,6 +88,8 @@
     backface-visibility: visible !important;
     animation-duration: .75s;
 }
+
+/* Styling when two cards are unmatched */
 .grid-container .card.unmatched{
     animation-name: pulse;
     -webkit-backface-visibility: visible !important;
@@ -86,7 +98,7 @@
     background: #e2043b;
 
 }
-/* Animations */
+/* Animations for the card when a card is open,matched and unmatched */
 
 @keyframes flipInY{
     from{

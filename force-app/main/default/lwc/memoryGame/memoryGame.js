@@ -1,17 +1,20 @@
 import { LightningElement } from 'lwc';
+// This is used for loading the styles in the lwc Component
 import {loadStyle} from 'lightning/platformResourceLoader';
+// This is for the images from the static resources 
 import fontawesome from '@salesforce/resourceUrl/fontawesome';
 export default class MemoryGame extends LightningElement {
 
-    isLibLoaded =false
-    openedCards =[]
-    moves=0
-    matchedCard=[]
-    totalTime='00:00'
-    timeRef
-    showCongrations=false
+    isLibLoaded =false //when the styling is loaded
+    openedCards =[]    //OpenedCards array
+    moves=0            //Counter for Moves 
+    matchedCard=[]     //Matched Card Array
+    totalTime='00:00'  //Timer varaible
+    timeRef            //Time to show
+    showCongrations=false //Showling model after winning the game
 
 
+    // Cards array for the icons
     cards=[
         {id:1,listClass:"card",type:'diamond',icon:'fa fa-diamond'},
         {id:2,listClass:"card",type:'plane',icon:'fa fa-paper-plane-o'},
@@ -32,22 +35,25 @@ export default class MemoryGame extends LightningElement {
     ]
 
 
+    //Get the rating based on Moves
     get gameRating(){
         let stars= this.moves <12 ? [1,2,3]:this.moves>=13 ? [1,2]:[1]
         return this.matchedCard.length ===16 ? stars:[]
     }
 
 
+    //This is for displaying the card 
     displayCard(event){
         let currCard=event.target
         currCard.classList.add("open","show","disabled")
         this.openedCards=this.openedCards.concat(event.target)
         const len=this.openedCards.length
         if (len ==2) {
-            this.moves=this.moves+1
+            this.moves=this.moves+1 //Increase the count of the moves
             if (this.moves===1) {
                 this.timer()
             }
+            //If both the cards are matched 
             if (this.openedCards[0].type === this.openedCards[1].type) {
                 this.matchedCard=this.matchedCard.concat(this.openedCards[0],this.openedCards[1])
                 this.matched()
@@ -148,7 +154,7 @@ export default class MemoryGame extends LightningElement {
     }
 
 
-    
+
     renderedCallback(){
         if (this.isLibLoaded) {
             return
